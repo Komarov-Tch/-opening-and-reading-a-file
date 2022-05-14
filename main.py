@@ -55,7 +55,7 @@ def add_files(lst_files):
     for i in lst_files:
         with open(i, mode='r', encoding='utf-8') as f:
             work_zone.append((i, len(f.readlines())))
-        work_zone.sort(key=lambda x: x[1])
+    work_zone.sort(key=lambda x: x[1])
     f = open('result.txt', 'w', encoding='utf-8')
     for name, lenght in work_zone:
         with open(name, mode='r', encoding='utf-8') as work_file:
@@ -65,6 +65,6 @@ def add_files(lst_files):
     f.close()
 
 # cook_book = read_reciept('rec2')
-# add_files(['1.txt', '2.txt', '3.txt']
+#add_files(['1.txt', '2.txt', '3.txt'])
 # print(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2))
 # rec_reciept(cook_book, 'rec2')
