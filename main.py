@@ -6,9 +6,9 @@ def read_reciept(name):
     # Создаем словарь из файла
     with open(name, mode='r', encoding='utf-8') as f:
         result = {}
-        name = f.readline().strip()
         for line in f:
-            quatity = int(line.strip())
+            name = line.strip()
+            quatity = int(f.readline().strip())
             lines = []
             for item in range(quatity):
                 data = f.readline().strip().split(' | ')
@@ -17,7 +17,6 @@ def read_reciept(name):
                               'measure': data[2]})
             result[name] = lines
             f.readline()
-            name = f.readline().strip()
     return result
 
 
@@ -68,6 +67,6 @@ text_direct = os.path.join(os.getcwd(), 'texts')  # Адрес папки для
 lst_files = os.listdir(text_direct)  # Список файлов для склейки в 1
 # add_files(lst_files)  # Вызов функции для склейки файлов
 
-# cook_book = read_reciept(os.path.join(reciept_direct, 'rec2')) # создание словаря из текста в файле
+# cook_book = read_reciept(os.path.join(reciept_direct, 'rec2'))  # создание словаря из текста в файле
 # print(get_shop_list_by_dishes(['Омлет', 'Омлет'], 1)) # сколько продуктов купить
 # rec_reciept(cook_book, 'rec2') # на всякий пожарный, создание файла из словаря
